@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-19T22:16:30+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>我的个人博客</subtitle><entry><title type="html">Hello World - 我的第一篇博客文章</title><link href="http://localhost:4000/2024/04/19/hello-world/" rel="alternate" type="text/html" title="Hello World - 我的第一篇博客文章" /><published>2024-04-19T00:00:00+08:00</published><updated>2024-04-19T00:00:00+08:00</updated><id>http://localhost:4000/2024/04/19/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/04/19/hello-world/"><![CDATA[<h1 id="hello-world">Hello World</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-19T22:20:12+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>我的个人博客</subtitle><entry><title type="html">Hello World - 我的第一篇博客文章</title><link href="http://localhost:4000/2024/04/19/hello-world/" rel="alternate" type="text/html" title="Hello World - 我的第一篇博客文章" /><published>2024-04-19T00:00:00+08:00</published><updated>2024-04-19T00:00:00+08:00</updated><id>http://localhost:4000/2024/04/19/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/04/19/hello-world/"><![CDATA[<h1 id="hello-world">Hello World</h1>
 
 <p>欢迎来到我的博客！这是我的第一篇文章。在这里，我将分享我的想法、经验和知识。</p>
 
@@ -36,4 +36,57 @@
   <li>在社交媒体上关注我</li>
 </ul>
 
-<p>感谢你的访问！</p>]]></content><author><name></name></author><category term="博客" /><category term="介绍" /><category term="开始" /><summary type="html"><![CDATA[Hello World]]></summary></entry></feed>
+<p>感谢你的访问！</p>]]></content><author><name></name></author><category term="博客" /><category term="介绍" /><category term="开始" /><summary type="html"><![CDATA[Hello World]]></summary></entry><entry><title type="html">认知偏差：我们如何被自己的思维所欺骗</title><link href="http://localhost:4000/2024/04/19/cognitive-biases/" rel="alternate" type="text/html" title="认知偏差：我们如何被自己的思维所欺骗" /><published>2024-04-19T00:00:00+08:00</published><updated>2024-04-19T00:00:00+08:00</updated><id>http://localhost:4000/2024/04/19/cognitive-biases</id><content type="html" xml:base="http://localhost:4000/2024/04/19/cognitive-biases/"><![CDATA[<h1 id="认知偏差我们如何被自己的思维所欺骗">认知偏差：我们如何被自己的思维所欺骗</h1>
+
+<p>在人类漫长的进化过程中，我们的大脑发展出了许多认知捷径（启发式），这些捷径帮助我们快速做出决策，但同时也可能导致系统性的错误，这就是所谓的认知偏差。</p>
+
+<h2 id="常见的认知偏差">常见的认知偏差</h2>
+
+<h3 id="1-确认偏误confirmation-bias">1. 确认偏误（Confirmation Bias）</h3>
+<p>我们倾向于寻找、解释和记住那些支持我们已有信念的信息，而忽视与之相矛盾的信息。这种偏差让我们更容易陷入”信息茧房”。</p>
+
+<h3 id="2-锚定效应anchoring-effect">2. 锚定效应（Anchoring Effect）</h3>
+<p>在做决策时，我们过分依赖最先获得的信息（锚点）。例如，在谈判中，第一个报价往往会显著影响最终的成交价格。</p>
+
+<h3 id="3-可得性偏差availability-bias">3. 可得性偏差（Availability Bias）</h3>
+<p>我们更容易想起那些容易回忆的例子，并据此做出判断。这就是为什么我们常常高估某些罕见事件的发生概率。</p>
+
+<h3 id="4-从众心理bandwagon-effect">4. 从众心理（Bandwagon Effect）</h3>
+<p>我们倾向于跟随大多数人的选择，即使这可能不是最优决策。这种偏差在社交媒体时代表现得尤为明显。</p>
+
+<h2 id="如何应对认知偏差">如何应对认知偏差</h2>
+
+<ol>
+  <li><strong>提高意识</strong>
+    <ul>
+      <li>了解常见的认知偏差</li>
+      <li>在决策时主动识别可能的偏差</li>
+    </ul>
+  </li>
+  <li><strong>使用思维工具</strong>
+    <ul>
+      <li>反向思考</li>
+      <li>寻找反面证据</li>
+      <li>使用决策清单</li>
+    </ul>
+  </li>
+  <li><strong>建立系统</strong>
+    <ul>
+      <li>制定决策流程</li>
+      <li>记录决策依据</li>
+      <li>定期复盘和反思</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="结语">结语</h2>
+
+<p>认知偏差是我们思维系统的一部分，完全避免它们是不可能的。但通过了解和识别这些偏差，我们可以做出更理性的决策。记住，最好的决策者不是那些从不犯错的人，而是那些能够识别并纠正自己错误的人。</p>
+
+<h2 id="延伸阅读">延伸阅读</h2>
+
+<ul>
+  <li>《思考，快与慢》- 丹尼尔·卡尼曼</li>
+  <li>《认知偏差：我们如何被自己的思维所欺骗》</li>
+  <li>《决策与判断》- 斯科特·普劳斯</li>
+</ul>]]></content><author><name></name></author><category term="认知科学" /><category term="认知偏差" /><category term="思维方法" /><category term="决策心理学" /><summary type="html"><![CDATA[认知偏差：我们如何被自己的思维所欺骗]]></summary></entry></feed>

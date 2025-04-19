@@ -1,5 +1,5 @@
-title: My Blog
-description: 我的个人博客
+title: 被认知圈养
+description: 探索认知的边界，突破思维的牢笼
 baseurl: ""
 url: ""
 
@@ -34,4 +34,13 @@ defaults:
       path: ""
       type: "pages"
     values:
-      layout: "page" 
+      layout: "page"
+
+# 主题设置
+theme:
+  primary_color: "#2c3e50"
+  secondary_color: "#34495e"
+  accent_color: "#3498db"
+  text_color: "#333333"
+  background_color: "#ffffff"
+  font_family: "Noto Sans SC, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
