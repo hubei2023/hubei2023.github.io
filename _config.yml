@@ -1,0 +1,37 @@
+title: My Blog
+description: 我的个人博客
+baseurl: ""
+url: ""
+
+# 构建设置
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+
+# 插件
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# 默认布局
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page" 

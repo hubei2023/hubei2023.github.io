@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-19T22:14:26+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Blog</title><subtitle>我的个人博客</subtitle><entry><title type="html">Hello World - 我的第一篇博客文章</title><link href="http://localhost:4000/2024/04/19/hello-world/" rel="alternate" type="text/html" title="Hello World - 我的第一篇博客文章" /><published>2024-04-19T00:00:00+08:00</published><updated>2024-04-19T00:00:00+08:00</updated><id>http://localhost:4000/2024/04/19/hello-world</id><content type="html" xml:base="http://localhost:4000/2024/04/19/hello-world/"><![CDATA[<h1 id="hello-world">Hello World</h1>
+
+<p>欢迎来到我的博客！这是我的第一篇文章。在这里，我将分享我的想法、经验和知识。</p>
+
+<h2 id="关于这个博客">关于这个博客</h2>
+
+<p>这个博客使用 Jekyll 构建，是一个静态网站。它的特点是：</p>
+
+<ul>
+  <li>简单清晰的设计</li>
+  <li>快速加载</li>
+  <li>易于维护</li>
+  <li>支持 Markdown 写作</li>
+</ul>
+
+<h2 id="未来计划">未来计划</h2>
+
+<p>我计划在这里分享：</p>
+
+<ol>
+  <li>技术文章</li>
+  <li>学习笔记</li>
+  <li>生活随笔</li>
+  <li>项目展示</li>
+</ol>
+
+<p>希望这个博客能够帮助到你，也希望能够通过写作来整理和分享我的想法。</p>
+
+<h2 id="联系方式">联系方式</h2>
+
+<p>如果你有任何问题或建议，欢迎通过以下方式联系我：</p>
+
+<ul>
+  <li>在文章下方留言</li>
+  <li>发送邮件</li>
+  <li>在社交媒体上关注我</li>
+</ul>
+
+<p>感谢你的访问！</p>]]></content><author><name></name></author><category term="博客" /><category term="介绍" /><category term="开始" /><summary type="html"><![CDATA[Hello World]]></summary></entry></feed>

@@ -1,0 +1,132 @@
+/* 基础样式 */
+:root {
+    --primary-color: #333;
+    --secondary-color: #666;
+    --background-color: #fff;
+    --link-color: #0366d6;
+    --border-color: #eaecef;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* 布局 */
+header {
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+nav {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav a {
+    margin-right: 1rem;
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* 文章列表 */
+.post-list {
+    margin-top: 2rem;
+}
+
+.post-preview {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-preview:last-child {
+    border-bottom: none;
+}
+
+.post-preview h2 {
+    margin: 0 0 0.5rem;
+}
+
+.post-preview h2 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+    color: var(--link-color);
+}
+
+.post-meta {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* 文章页面 */
+.post {
+    margin-bottom: 2rem;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-tags {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    .post-content {
+        font-size: 1rem;
+    }
+} 
