@@ -1,0 +1,45 @@
+zh:
+  nav:
+    home: 首页
+    about: 关于
+    archive: 归档
+    web3: Web3
+    psychology: 心理学
+    economics: 经济学
+    books: 港大推荐50本书
+  hero:
+    title: 被认知圈养
+    subtitle: 探索认知的边界，突破思维的牢笼
+  categories:
+    title: 探索主题
+    web3_desc: 探索去中心化互联网的未来
+    psychology_desc: 探索人类心理的奥秘
+    economics_desc: 探索经济运行的规律
+    books_desc: 探索知识的海洋
+  posts:
+    latest: 最新文章
+    read_more: 阅读更多
+    categories: 分类
+
+en:
+  nav:
+    home: Home
+    about: About
+    archive: Archive
+    web3: Web3
+    psychology: Psychology
+    economics: Economics
+    books: HKU 50 Books
+  hero:
+    title: Cognitive Enclosure
+    subtitle: Explore the boundaries of cognition, break through the cage of thinking
+  categories:
+    title: Explore Topics
+    web3_desc: Explore the future of decentralized internet
+    psychology_desc: Explore the mysteries of human psychology
+    economics_desc: Explore the laws of economic operation
+    books_desc: Explore the ocean of knowledge
+  posts:
+    latest: Latest Posts
+    read_more: Read More
+    categories: Categories 
