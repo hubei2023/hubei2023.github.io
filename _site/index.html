@@ -35,48 +35,57 @@
     <main>
         <header>
     <nav class="top-nav">
-        <a href="/web3/">Web3</a>
-        <a href="/psychology/">心理学</a>
-        <a href="/economics/">经济学</a>
-        <a href="/books/">港大推荐50本书</a>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="/web3/"></a>
+                <a href="/psychology/"></a>
+                <a href="/economics/"></a>
+                <a href="/books/"></a>
+            </div>
+            <div class="lang-switch">
+                
+                    <a href="/" class="lang-btn">中</a>
+                
+            </div>
+        </div>
     </nav>
     <nav class="main-nav">
-        <a href="/">首页</a>
-        <a href="/about/">关于</a>
-        <a href="/archive/">归档</a>
+        <a href="/"></a>
+        <a href="/about/"></a>
+        <a href="/archive/"></a>
     </nav>
 </header>
 
 <main>
     <div class="hero">
-        <h1>被认知圈养</h1>
-        <p class="subtitle">探索认知的边界，突破思维的牢笼</p>
+        <h1></h1>
+        <p class="subtitle"></p>
     </div>
 
     <div class="featured-categories">
-        <h2>探索主题</h2>
+        <h2></h2>
         <div class="category-grid">
             <a href="/web3/" class="category-card">
-                <h3>Web3</h3>
-                <p>探索去中心化互联网的未来</p>
+                <h3></h3>
+                <p></p>
             </a>
             <a href="/psychology/" class="category-card">
-                <h3>心理学</h3>
-                <p>探索人类心理的奥秘</p>
+                <h3></h3>
+                <p></p>
             </a>
             <a href="/economics/" class="category-card">
-                <h3>经济学</h3>
-                <p>探索经济运行的规律</p>
+                <h3></h3>
+                <p></p>
             </a>
             <a href="/books/" class="category-card">
-                <h3>港大推荐50本书</h3>
-                <p>探索知识的海洋</p>
+                <h3></h3>
+                <p></p>
             </a>
         </div>
     </div>
 
     <div class="latest-posts">
-        <h2>最新文章</h2>
+        <h2></h2>
         <div class="post-grid">
             
             <article class="post-card">
@@ -87,7 +96,7 @@
                     </time>
                     
                     <span class="categories">
-                        分类：
+                        ：
                         
                         <a href="/categories/#经济学">经济学</a>
                         
@@ -98,7 +107,7 @@
                     日本的三个钱包：了解日本人的理财智慧
 
                 </div>
-                <a href="/2024/04/19/japanese-wallets/" class="read-more">阅读更多</a>
+                <a href="/2024/04/19/japanese-wallets/" class="read-more"></a>
             </article>
             
             <article class="post-card">
@@ -109,7 +118,7 @@
                     </time>
                     
                     <span class="categories">
-                        分类：
+                        ：
                         
                         <a href="/categories/#博客">博客</a>
                         
@@ -120,7 +129,7 @@
                     Hello World
 
                 </div>
-                <a href="/2024/04/19/hello-world/" class="read-more">阅读更多</a>
+                <a href="/2024/04/19/hello-world/" class="read-more"></a>
             </article>
             
             <article class="post-card">
@@ -131,7 +140,7 @@
                     </time>
                     
                     <span class="categories">
-                        分类：
+                        ：
                         
                         <a href="/categories/#认知科学">认知科学</a>
                         
@@ -142,7 +151,7 @@
                     认知偏差：我们如何被自己的思维所欺骗
 
                 </div>
-                <a href="/2024/04/19/cognitive-biases/" class="read-more">阅读更多</a>
+                <a href="/2024/04/19/cognitive-biases/" class="read-more"></a>
             </article>
             
         </div>
@@ -256,54 +265,55 @@
 }
 
 .top-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0.5rem;
     background-color: var(--primary-color);
-    color: white;
+    padding: 0.5rem 2rem;
 }
 
-.top-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: opacity 0.3s ease;
-}
-
-.top-nav a:hover {
-    opacity: 0.8;
-}
-
-.main-nav {
+.nav-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
     gap: 2rem;
-    padding: 1rem;
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
 }
 
-.main-nav a {
-    color: var(--text-color);
+.lang-switch {
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
-.main-nav a:hover {
-    color: var(--primary-color);
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {
-    .top-nav, .main-nav {
-        flex-wrap: wrap;
+    .nav-content {
+        flex-direction: column;
         gap: 1rem;
-        padding: 0.5rem;
     }
     
-    .top-nav a, .main-nav a {
-        font-size: 0.85rem;
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .lang-switch {
+        margin-left: 0;
     }
 }
 </style> 

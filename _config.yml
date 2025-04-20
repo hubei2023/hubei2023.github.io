@@ -4,10 +4,10 @@ baseurl: ""
 url: ""
 
 # 多语言设置
-languages: ["zh", "en"]
-default_lang: "zh"
-exclude_from_localization: ["assets", "images"]
-parallel_localization: true
+#languages: ["zh", "en"]
+#default_lang: "zh"
+#exclude_from_localization: ["assets", "images"]
+#parallel_localization: true
 
 # 构建设置
 markdown: kramdown
@@ -26,7 +26,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-multiple-languages-plugin
+#  - jekyll-multiple-languages-plugin
 
 # 默认布局
 defaults:

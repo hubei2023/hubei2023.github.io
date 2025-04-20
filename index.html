@@ -5,48 +5,59 @@ title: 首页
 
 <header>
     <nav class="top-nav">
-        <a href="/web3/">Web3</a>
-        <a href="/psychology/">心理学</a>
-        <a href="/economics/">经济学</a>
-        <a href="/books/">港大推荐50本书</a>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="/web3/">{{ site.data.i18n[site.lang].nav.web3 }}</a>
+                <a href="/psychology/">{{ site.data.i18n[site.lang].nav.psychology }}</a>
+                <a href="/economics/">{{ site.data.i18n[site.lang].nav.economics }}</a>
+                <a href="/books/">{{ site.data.i18n[site.lang].nav.books }}</a>
+            </div>
+            <div class="lang-switch">
+                {% if site.lang == "zh" %}
+                    <a href="{{ site.baseurl_root }}/en{{ page.url }}" class="lang-btn">EN</a>
+                {% else %}
+                    <a href="{{ site.baseurl_root }}{{ page.url }}" class="lang-btn">中</a>
+                {% endif %}
+            </div>
+        </div>
     </nav>
     <nav class="main-nav">
-        <a href="/">首页</a>
-        <a href="/about/">关于</a>
-        <a href="/archive/">归档</a>
+        <a href="/">{{ site.data.i18n[site.lang].nav.home }}</a>
+        <a href="/about/">{{ site.data.i18n[site.lang].nav.about }}</a>
+        <a href="/archive/">{{ site.data.i18n[site.lang].nav.archive }}</a>
     </nav>
 </header>
 
 <main>
     <div class="hero">
-        <h1>被认知圈养</h1>
-        <p class="subtitle">探索认知的边界，突破思维的牢笼</p>
+        <h1>{{ site.data.i18n[site.lang].hero.title }}</h1>
+        <p class="subtitle">{{ site.data.i18n[site.lang].hero.subtitle }}</p>
     </div>
 
     <div class="featured-categories">
-        <h2>探索主题</h2>
+        <h2>{{ site.data.i18n[site.lang].categories.title }}</h2>
         <div class="category-grid">
             <a href="/web3/" class="category-card">
-                <h3>Web3</h3>
-                <p>探索去中心化互联网的未来</p>
+                <h3>{{ site.data.i18n[site.lang].nav.web3 }}</h3>
+                <p>{{ site.data.i18n[site.lang].categories.web3_desc }}</p>
             </a>
             <a href="/psychology/" class="category-card">
-                <h3>心理学</h3>
-                <p>探索人类心理的奥秘</p>
+                <h3>{{ site.data.i18n[site.lang].nav.psychology }}</h3>
+                <p>{{ site.data.i18n[site.lang].categories.psychology_desc }}</p>
             </a>
             <a href="/economics/" class="category-card">
-                <h3>经济学</h3>
-                <p>探索经济运行的规律</p>
+                <h3>{{ site.data.i18n[site.lang].nav.economics }}</h3>
+                <p>{{ site.data.i18n[site.lang].categories.economics_desc }}</p>
             </a>
             <a href="/books/" class="category-card">
-                <h3>港大推荐50本书</h3>
-                <p>探索知识的海洋</p>
+                <h3>{{ site.data.i18n[site.lang].nav.books }}</h3>
+                <p>{{ site.data.i18n[site.lang].categories.books_desc }}</p>
             </a>
         </div>
     </div>
 
     <div class="latest-posts">
-        <h2>最新文章</h2>
+        <h2>{{ site.data.i18n[site.lang].posts.latest }}</h2>
         <div class="post-grid">
             {% for post in site.posts limit:6 %}
             <article class="post-card">
@@ -57,7 +68,7 @@ title: 首页
                     </time>
                     {% if post.categories %}
                     <span class="categories">
-                        分类：
+                        {{ site.data.i18n[site.lang].posts.categories }}：
                         {% for category in post.categories %}
                         <a href="/categories/#{{ category | slugify }}">{{ category }}</a>
                         {% endfor %}
@@ -67,7 +78,7 @@ title: 首页
                 <div class="post-excerpt">
                     {{ post.excerpt | strip_html | truncatewords: 50 }}
                 </div>
-                <a href="{{ post.url | relative_url }}" class="read-more">阅读更多</a>
+                <a href="{{ post.url | relative_url }}" class="read-more">{{ site.data.i18n[site.lang].posts.read_more }}</a>
             </article>
             {% endfor %}
         </div>
@@ -181,54 +192,55 @@ title: 首页
 }
 
 .top-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0.5rem;
     background-color: var(--primary-color);
-    color: white;
+    padding: 0.5rem 2rem;
 }
 
-.top-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: opacity 0.3s ease;
-}
-
-.top-nav a:hover {
-    opacity: 0.8;
-}
-
-.main-nav {
+.nav-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
     gap: 2rem;
-    padding: 1rem;
-    background-color: var(--background-color);
-    border-bottom: 1px solid var(--border-color);
 }
 
-.main-nav a {
-    color: var(--text-color);
+.lang-switch {
+    margin-left: 2rem;
+}
+
+.lang-btn {
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
-.main-nav a:hover {
-    color: var(--primary-color);
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {
-    .top-nav, .main-nav {
-        flex-wrap: wrap;
+    .nav-content {
+        flex-direction: column;
         gap: 1rem;
-        padding: 0.5rem;
     }
     
-    .top-nav a, .main-nav a {
-        font-size: 0.85rem;
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .lang-switch {
+        margin-left: 0;
     }
 }
 </style> 
