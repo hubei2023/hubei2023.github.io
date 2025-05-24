@@ -6,10 +6,17 @@ nav:
   home: "首页"
   about: "关于"
   archive: "归档"
+  hku_books: "港大书单"
+  book_reviews: "检视阅读"
+  book_reviews_home: "检视阅读主页"
+  review_republic: "《理想国》"
+  review_psychology: "《心理学与生活》"
+  review_miserables: "《悲惨世界》"
   psychology: "心理学"
   technology: "技术"
   economics: "经济学"
   web3: "Web3"
+  singularity: "奇点"
 
 common:
   read_more: "阅读更多"

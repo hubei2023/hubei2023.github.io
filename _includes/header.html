@@ -1,0 +1,115 @@
+        <nav class="site-nav">
+          <div class="trigger">
+            <a class="page-link" href="{{ '/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_home | default: "Home" }}</a>
+            <a class="page-link" href="{{ '/hku-books/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_hku_books | default: "港大书单" }}</a>
+            
+            <!-- 检视阅读下拉菜单 -->
+            <div class="dropdown">
+              <a class="page-link dropdown-toggle" href="{{ '/book-reviews/' | relative_url }}">
+                {{ site.data.ui-text[site.locale].nav_book_reviews | default: "检视阅读" }}
+                <span class="dropdown-arrow">▼</span>
+              </a>
+              <div class="dropdown-content">
+                <a href="{{ '/book-reviews/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_book_reviews_home | default: "检视阅读主页" }}</a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ '/reviews/the-republic/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_review_republic | default: "《理想国》" }}</a>
+                <a href="{{ '/reviews/psychology-and-life/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_review_psychology | default: "《心理学与生活》" }}</a>
+                <a href="{{ '/reviews/les-miserables/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_review_miserables | default: "《悲惨世界》" }}</a>
+              </div>
+            </div>
+            
+            <a class="page-link" href="{{ '/psychology/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_psychology | default: "Psychology" }}</a>
+            <a class="page-link" href="{{ '/technology/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_technology | default: "Technology" }}</a>
+            <a class="page-link" href="{{ '/economics/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_economics | default: "Economics" }}</a>
+            <a class="page-link" href="{{ '/web3/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_web3 | default: "Web3" }}</a>
+            <a class="page-link" href="{{ '/singularity/' | relative_url }}">{{ site.data.ui-text[site.locale].nav_singularity | default: "Singularity" }}</a>
+          </div>
+        </nav>
+
+        <!-- 下拉菜单样式 -->
+        <style>
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+
+        .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .dropdown-arrow {
+          font-size: 12px;
+          transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-arrow {
+          transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: white;
+          min-width: 200px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1000;
+          border-radius: 8px;
+          padding: 8px 0;
+          top: 100%;
+          left: 0;
+          border: 1px solid #e1e1e1;
+        }
+
+        .dropdown-content a {
+          color: #333;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          transition: background-color 0.3s ease;
+          font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+          background-color: #f8f9fa;
+          color: #007bff;
+        }
+
+        .dropdown-divider {
+          height: 1px;
+          background-color: #e1e1e1;
+          margin: 8px 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+          animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+          .dropdown-content {
+            position: static;
+            display: block;
+            box-shadow: none;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            margin-left: 20px;
+          }
+          
+          .dropdown:hover .dropdown-content {
+            display: block;
+          }
+          
+          .dropdown-arrow {
+            display: none;
+          }
+        }
+        </style> 

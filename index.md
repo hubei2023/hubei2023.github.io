@@ -5,7 +5,14 @@ description: 探索认知的边界，突破思维的牢笼
 ---
 
 <div class="mindmap-container">
-  <h2>香港大学推荐50本书 - 认知探索地图</h2>
+  <div class="top-bar">
+    <h2 class="title-left">底层逻辑</h2>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="搜索书籍或作者..." class="search-box">
+      <button class="search-btn" onclick="searchBooks()">🔍</button>
+    </div>
+  </div>
+  
   <div class="mermaid">
     mindmap
       root((认知探索))
@@ -72,254 +79,213 @@ description: 探索认知的边界，突破思维的牢笼
   </div>
 </div>
 
-<div class="book-stats">
-  <h3>香港大学推荐50本书 - 分类统计</h3>
-  <div class="stats-grid">
-    <div class="stat-item">
-      <div class="stat-number">11</div>
-      <div class="stat-label">文学艺术</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">8</div>
-      <div class="stat-label">心理学洞察</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">6</div>
-      <div class="stat-label">哲学思辨</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">5</div>
-      <div class="stat-label">沟通影响</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">5</div>
-      <div class="stat-label">历史文化</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">5</div>
-      <div class="stat-label">经济学智慧</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">4</div>
-      <div class="stat-label">科学探索</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">4</div>
-      <div class="stat-label">商业管理</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">1</div>
-      <div class="stat-label">军事战略</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">1</div>
-      <div class="stat-label">政治法理</div>
-    </div>
-  </div>
-</div>
-
-<div class="insights-section">
-  <h3>书单洞察</h3>
-  <div class="insights-grid">
-    <div class="insight-card">
-      <h4>人文素养占主导</h4>
-      <p>文学艺术类书籍占比最高（22%），体现了香港大学对人文素养的重视，强调通过文学作品培养学生的情感智慧和审美能力。</p>
-    </div>
-    <div class="insight-card">
-      <h4>心理学基础扎实</h4>
-      <p>心理学相关书籍占16%，从弗洛伊德的经典到现代应用心理学，构建了完整的心理学知识体系。</p>
-    </div>
-    <div class="insight-card">
-      <h4>跨学科整合</h4>
-      <p>涵盖哲学、经济学、历史、科学等多个领域，体现了现代教育对跨学科思维的要求。</p>
-    </div>
-    <div class="insight-card">
-      <h4>实用技能并重</h4>
-      <p>包含沟通、管理、思维方法等实用技能书籍，平衡了理论学习与实践应用。</p>
-    </div>
-  </div>
-  
-  <div class="cta-section">
-    <a href="{{ '/hku-books/' | relative_url }}" class="cta-button">
-      📚 查看完整书单分析
-      <span class="cta-subtitle">深度解读每本书的核心价值与学习路径</span>
-    </a>
-  </div>
-</div>
-
 <style>
-.mindmap-container {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* 全屏样式重置 */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
-.mindmap-container h2 {
-  text-align: center;
+.page-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.wrapper {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.mindmap-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 顶部栏样式 */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-sizing: border-box;
+  z-index: 1001;
+}
+
+/* 左上角标题 */
+.title-left {
   color: #2c3e50;
-  margin-bottom: 30px;
   font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 右上角搜索框容器 */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  width: 300px;
+  height: 40px;
+  padding: 0 15px;
+  border: 2px solid #e1e8ed;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.search-box:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+.search-box::placeholder {
+  color: #95a5a6;
+}
+
+.search-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #3498db;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background: #2980b9;
+  transform: scale(1.05);
+}
+
+.search-btn:active {
+  transform: scale(0.95);
 }
 
 .mermaid {
+  width: 100%;
+  height: 100vh;
   background: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  min-height: 600px;
-}
-
-.book-stats {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.book-stats h3 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 22px;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 10px;
-  color: white;
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-number {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.stat-label {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.insights-section {
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.insights-section h3 {
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 30px;
-  font-size: 22px;
-}
-
-.insights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.insight-card {
-  padding: 25px;
-  background: #f8f9fa;
-  border-radius: 10px;
-  border-left: 4px solid #3498db;
-  transition: transform 0.3s ease;
-}
-
-.insight-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.insight-card h4 {
-  color: #2c3e50;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.insight-card p {
-  color: #666;
-  line-height: 1.6;
+  padding: 70px 0 0 0;
   margin: 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-.cta-section {
-  text-align: center;
-  margin-top: 30px;
+/* 隐藏页面其他元素 */
+.site-header,
+.site-footer {
+  display: none !important;
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 15px 30px;
-  background: #3498db;
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background: #2980b9;
-}
-
-.cta-subtitle {
-  display: block;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
+/* 移动端适配 */
 @media (max-width: 768px) {
-  .mindmap-container,
-  .book-stats,
-  .insights-section {
-    margin: 20px auto;
-    padding: 15px;
+  .top-bar {
+    height: 60px;
+    padding: 0 15px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .title-left {
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .search-container {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .search-box {
+    width: 200px;
+    height: 35px;
+    font-size: 13px;
+  }
+  
+  .search-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
   }
   
   .mermaid {
-    padding: 10px;
-    min-height: 400px;
+    padding: 60px 0 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-bar {
+    height: 80px;
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+  .title-left {
+    font-size: 14px;
   }
   
-  .stat-item {
-    padding: 15px;
+  .search-box {
+    width: 150px;
   }
   
-  .stat-number {
-    font-size: 24px;
+  .mermaid {
+    padding: 80px 0 0 0;
   }
-  
-  .insights-grid {
-    grid-template-columns: 1fr;
-  }
+}
+
+/* 确保思维导图SVG充满容器 */
+.mermaid svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* 搜索结果高亮样式 */
+.highlight {
+  background-color: #fff3cd !important;
+  border: 2px solid #ffc107 !important;
+  animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 </style>
 
@@ -330,112 +296,82 @@ mermaid.initialize({
   theme: 'default',
   securityLevel: 'loose',
   mindmap: {
-    diagramPadding: 50,
-    nodeSpacing: 50,
+    diagramPadding: 20,
+    nodeSpacing: 80,
     curve: 'basis'
   }
 });
-</script>
 
-<div class="content-section">
-  <h2>最新文章</h2>
-  <div class="post-list">
-    {% for post in site.posts limit:5 %}
-    <article class="post-card">
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-        {% if post.categories %}
-        <span class="categories">
-          {% for category in post.categories %}
-          <a href="{{ '/categories/' | relative_url }}{{ category | slugify }}">{{ category }}</a>
-          {% endfor %}
-        </span>
-        {% endif %}
-      </div>
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-      <a href="{{ post.url | relative_url }}" class="read-more">阅读更多</a>
-    </article>
-    {% endfor %}
-  </div>
-</div>
-
-<style>
-.content-section {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-.post-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
-}
-
-.post-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-5px);
-}
-
-.post-card h3 {
-  margin: 0 0 15px 0;
-  font-size: 20px;
-}
-
-.post-card h3 a {
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-.post-meta {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.post-meta time {
-  margin-right: 15px;
-}
-
-.categories a {
-  color: #3498db;
-  text-decoration: none;
-  margin-right: 10px;
-}
-
-.post-excerpt {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.read-more {
-  display: inline-block;
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .post-list {
-    grid-template-columns: 1fr;
+// 搜索功能
+function searchBooks() {
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+  
+  if (!searchTerm) {
+    alert('请输入搜索关键词');
+    return;
   }
   
-  .post-card {
-    padding: 15px;
+  // 清除之前的高亮
+  clearHighlights();
+  
+  // 获取所有思维导图节点
+  const nodes = document.querySelectorAll('.mermaid text');
+  let found = false;
+  
+  nodes.forEach(node => {
+    const text = node.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      // 高亮匹配的节点
+      const parentNode = node.closest('g');
+      if (parentNode) {
+        parentNode.classList.add('highlight');
+        found = true;
+        
+        // 滚动到第一个匹配项
+        if (!found) {
+          parentNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+  });
+  
+  if (!found) {
+    alert(`未找到包含 "${searchTerm}" 的书籍或作者`);
+  } else {
+    // 3秒后清除高亮
+    setTimeout(clearHighlights, 3000);
   }
 }
-</style> 
+
+// 清除高亮
+function clearHighlights() {
+  const highlighted = document.querySelectorAll('.highlight');
+  highlighted.forEach(element => {
+    element.classList.remove('highlight');
+  });
+}
+
+// 回车键搜索
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchInput');
+  
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchBooks();
+    }
+  });
+  
+  // 隐藏可能存在的导航元素
+  const header = document.querySelector('.site-header');
+  const footer = document.querySelector('.site-footer');
+  const nav = document.querySelector('nav');
+  
+  if (header) header.style.display = 'none';
+  if (footer) footer.style.display = 'none';
+  if (nav) nav.style.display = 'none';
+  
+  // 确保body没有滚动条
+  document.body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
+});
+</script> 

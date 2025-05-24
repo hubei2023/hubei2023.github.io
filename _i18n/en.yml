@@ -6,10 +6,17 @@ nav:
   home: "Home"
   about: "About"
   archive: "Archive"
+  hku_books: "HKU Books"
+  book_reviews: "Book Reviews"
+  book_reviews_home: "Book Reviews Home"
+  review_republic: "The Republic"
+  review_psychology: "Psychology and Life"
+  review_miserables: "Les Misérables"
   psychology: "Psychology"
   technology: "Technology"
   economics: "Economics"
   web3: "Web3"
+  singularity: "Singularity"
 
 common:
   read_more: "Read More"
