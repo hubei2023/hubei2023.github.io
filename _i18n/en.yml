@@ -1,0 +1,18 @@
+site:
+  title: "Cognitive Captivity"
+  description: "Exploring the boundaries of cognition, breaking through the cage of thinking"
+
+nav:
+  home: "Home"
+  about: "About"
+  archive: "Archive"
+  psychology: "Psychology"
+  technology: "Technology"
+  economics: "Economics"
+  web3: "Web3"
+
+common:
+  read_more: "Read More"
+  posted_on: "Posted on"
+  categories: "Categories"
+  tags: "Tags" 

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<div class="page">
+  <header class="page-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="page-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+</div>
+
+<style>
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.page-title {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  color: #666;
+  font-style: italic;
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+</style> 

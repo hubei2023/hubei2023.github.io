@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>被认知圈养 - 被认知圈养</title>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>被认知圈养 | 探索认知的边界，突破思维的牢笼</title>
-<meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="被认知圈养" />
-<meta property="og:locale" content="zh" />
-<meta name="description" content="探索认知的边界，突破思维的牢笼" />
-<meta property="og:description" content="探索认知的边界，突破思维的牢笼" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="被认知圈养" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="被认知圈养" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"探索认知的边界，突破思维的牢笼","headline":"被认知圈养","name":"被认知圈养","url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
+---
+layout: home
+title: 被认知圈养
+description: 探索认知的边界，突破思维的牢笼
+---
 
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="/">首页</a>
-            <a href="/hku-books/">港大书单</a>
-            <a href="/psychology/">心理学</a>
-            <a href="/about/">关于</a>
-            <a href="/archive/">归档</a>
-        </nav>
-    </header>
-
-    <main>
-        <div class="home">
-  <div class="mindmap-container">
+<div class="mindmap-container">
   <h2>香港大学推荐50本书 - 认知探索地图</h2>
   <div class="mermaid">
     mindmap
@@ -172,7 +140,7 @@
   </div>
   
   <div class="cta-section">
-    <a href="/hku-books/" class="cta-button">
+    <a href="{{ '/hku-books/' | relative_url }}" class="cta-button">
       📚 查看完整书单分析
       <span class="cta-subtitle">深度解读每本书的核心价值与学习路径</span>
     </a>
@@ -356,7 +324,6 @@
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
 <script>
 mermaid.initialize({
   startOnLoad: true,
@@ -373,7 +340,23 @@ mermaid.initialize({
 <div class="content-section">
   <h2>最新文章</h2>
   <div class="post-list">
-    
+    {% for post in site.posts limit:5 %}
+    <article class="post-card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        {% if post.categories %}
+        <span class="categories">
+          {% for category in post.categories %}
+          <a href="{{ '/categories/' | relative_url }}{{ category | slugify }}">{{ category }}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      <a href="{{ post.url | relative_url }}" class="read-more">阅读更多</a>
+    </article>
+    {% endfor %}
   </div>
 </div>
 
@@ -455,16 +438,4 @@ mermaid.initialize({
     padding: 15px;
   }
 }
-</style>
-
-
-</div> 
-    </main>
-
-    <footer>
-        <p>&copy; 2025 被认知圈养. All rights reserved.</p>
-    </footer>
-
-    <script src="/assets/js/main.js"></script>
-</body>
-</html> 
+</style> 

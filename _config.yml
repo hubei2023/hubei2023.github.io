@@ -4,10 +4,10 @@ baseurl: ""
 url: ""
 
 # 多语言设置
-#languages: ["zh", "en"]
-#default_lang: "zh"
-#exclude_from_localization: ["assets", "images"]
-#parallel_localization: true
+languages: ["zh", "en"]
+default_lang: "zh"
+exclude_from_localization: ["assets", "images"]
+parallel_localization: true
 
 # 构建设置
 markdown: kramdown
@@ -26,7 +26,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-#  - jekyll-multiple-languages-plugin
+  - jekyll-multiple-languages-plugin
 
 # 默认布局
 defaults:
@@ -43,11 +43,10 @@ defaults:
     values:
       layout: "page"
 
-# 主题设置
-theme:
-  primary_color: "#2c3e50"
-  secondary_color: "#34495e"
-  accent_color: "#3498db"
-  text_color: "#333333"
-  background_color: "#ffffff"
-  font_family: "Noto Sans SC, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+# 主题颜色设置
+primary_color: "#2c3e50"
+secondary_color: "#34495e"
+accent_color: "#3498db"
+text_color: "#333333"
+background_color: "#ffffff"
+font_family: "Noto Sans SC, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 

@@ -1,0 +1,18 @@
+site:
+  title: "被认知圈养"
+  description: "探索认知的边界，突破思维的牢笼"
+
+nav:
+  home: "首页"
+  about: "关于"
+  archive: "归档"
+  psychology: "心理学"
+  technology: "技术"
+  economics: "经济学"
+  web3: "Web3"
+
+common:
+  read_more: "阅读更多"
+  posted_on: "发布于"
+  categories: "分类"
+  tags: "标签" 
