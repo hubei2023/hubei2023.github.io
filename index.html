@@ -83,6 +83,45 @@ title: 首页
             {% endfor %}
         </div>
     </div>
+
+    <div id="timeline" class="timeline-section">
+        <h2>书籍时间轴</h2>
+        <div class="timeline-controls">
+            <input type="text" id="timeline-search" placeholder="搜索书籍..." />
+            <select id="timeline-filter">
+                <option value="">所有类型</option>
+                <option value="哲学">哲学</option>
+                <option value="政治学">政治学</option>
+                <option value="心理学">心理学</option>
+                <option value="经济学">经济学</option>
+                <option value="文学">文学</option>
+                <option value="阅读方法论">阅读方法论</option>
+            </select>
+        </div>
+        <div class="timeline-stats">
+            <p>共 {{ site.data.books_detail.books.size }} 本书籍</p>
+        </div>
+        <div class="timeline-container">
+            {% for book in site.data.books_detail.books %}
+                {% assign book_title = book[0] %}
+                {% assign book_info = book[1] %}
+                <div class="timeline-item" data-book-type="{{ book_info.book_type }}" data-search-text="{{ book_title | downcase }} {{ book_info.author | downcase }} {{ book_info.country | downcase }}">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">{{ book_info.year }}</div>
+                        <div class="timeline-book">
+                            <h3><a href="/book-detail/{{ book_info.slug }}/">{{ book_title }}</a></h3>
+                            <div class="book-meta">
+                                <span class="author">{{ book_info.author }}</span>
+                                <span class="country">{{ book_info.country }}</span>
+                                <span class="type">{{ book_info.book_type }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </main>
 
 <style>
@@ -243,4 +282,270 @@ title: 首页
         margin-left: 0;
     }
 }
-</style> 
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-content {
+    width: 45%;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.timeline-year {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-book h3 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.timeline-book h3 a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.timeline-book h3 a:hover {
+    color: var(--primary-color);
+}
+
+.book-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.book-meta span {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    background-color: var(--blockquote-background);
+    color: var(--secondary-color);
+}
+
+.book-meta .author {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.book-meta .country {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.book-meta .type {
+    background-color: #e8f5e8;
+    color: #388e3c;
+}
+
+.timeline-section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+    background-color: var(--blockquote-background);
+    border-radius: 10px;
+}
+
+.timeline-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.timeline-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.timeline-controls input,
+.timeline-controls select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.timeline-controls input {
+    min-width: 200px;
+}
+
+.timeline-stats {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .timeline-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .timeline-controls input {
+        min-width: 250px;
+    }
+    
+    .timeline-container::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: 50px;
+    }
+    
+    .timeline-marker {
+        left: 11px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineSearch = document.getElementById('timeline-search');
+    const timelineFilter = document.getElementById('timeline-filter');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineStats = document.querySelector('.timeline-stats p');
+
+    function filterTimeline() {
+        const searchTerm = timelineSearch.value.toLowerCase();
+        const filterType = timelineFilter.value;
+        let visibleCount = 0;
+
+        timelineItems.forEach(item => {
+            const searchText = item.getAttribute('data-search-text');
+            const bookType = item.getAttribute('data-book-type');
+            
+            const matchesSearch = searchText.includes(searchTerm);
+            const matchesFilter = !filterType || bookType === filterType;
+            
+            if (matchesSearch && matchesFilter) {
+                item.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+
+        timelineStats.textContent = `共 ${visibleCount} 本书籍`;
+    }
+
+    timelineSearch.addEventListener('input', filterTimeline);
+    timelineFilter.addEventListener('change', filterTimeline);
+
+    // 平滑滚动到时间轴
+    const timelineBtn = document.querySelector('.timeline-btn');
+    const timelineSection = document.getElementById('timeline');
+    
+    if (timelineBtn && timelineSection) {
+        timelineBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            timelineSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // 更新URL但不刷新页面
+            history.pushState(null, null, '#timeline');
+            
+            // 聚焦搜索框
+            setTimeout(() => {
+                timelineSearch.focus();
+            }, 500);
+        });
+    }
+
+    // 如果URL包含#timeline，自动滚动到时间轴
+    if (window.location.hash === '#timeline') {
+        setTimeout(() => {
+            timelineSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, 100);
+    }
+});
+</script> 
