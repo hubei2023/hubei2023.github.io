@@ -812,6 +812,13 @@ function hideBookInfo() {
   tooltip.classList.remove('show');
 }
 
+// 跳转到书籍详细页面
+function goToBookDetail(bookTitle) {
+  // 将书名转换为URL友好的格式
+  const bookSlug = bookTitle.replace(/\s+/g, '-').replace(/[^\w\-\u4e00-\u9fa5]/g, '');
+  window.location.href = `/book-detail/${bookSlug}/`;
+}
+
 // 初始化事件监听
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('searchInput');
@@ -848,6 +855,11 @@ document.addEventListener('DOMContentLoaded', function() {
             parentNode.style.cursor = 'pointer';
             parentNode.addEventListener('mouseenter', (e) => showBookInfo(bookTitle, e));
             parentNode.addEventListener('mouseleave', hideBookInfo);
+            // 添加点击事件
+            parentNode.addEventListener('click', (e) => {
+              e.preventDefault();
+              goToBookDetail(bookTitle);
+            });
           }
           break;
         }

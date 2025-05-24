@@ -1,0 +1,350 @@
+books:
+  理想国:
+    author: "柏拉图"
+    year: "公元前380年"
+    country: "古希腊"
+    book_type: "哲学经典"
+    slug: "理想国"
+  
+  论法的精神:
+    author: "孟德斯鸠"
+    year: "1748年"
+    country: "法国"
+    book_type: "政治哲学"
+    slug: "论法的精神"
+  
+  社会契约论:
+    author: "卢梭"
+    year: "1762年"
+    country: "法国"
+    book_type: "政治哲学"
+    slug: "社会契约论"
+  
+  伦理学:
+    author: "斯宾诺莎"
+    year: "1677年"
+    country: "荷兰"
+    book_type: "哲学经典"
+    slug: "伦理学"
+  
+  宽容:
+    author: "房龙"
+    year: "1925年"
+    country: "荷兰裔美国"
+    book_type: "历史文化"
+    slug: "宽容"
+  
+  政府论:
+    author: "洛克"
+    year: "1689年"
+    country: "英国"
+    book_type: "政治哲学"
+    slug: "政府论"
+  
+  心理学与生活:
+    author: "格里格 & 津巴多"
+    year: "1971年"
+    country: "美国"
+    book_type: "心理学教材"
+    slug: "心理学与生活"
+  
+  追寻生命的意义:
+    author: "弗兰克尔"
+    year: "1946年"
+    country: "奥地利"
+    book_type: "心理学经典"
+    slug: "追寻生命的意义"
+  
+  拖延心理学:
+    author: "简·博克 & 莱诺拉·袁"
+    year: "1983年"
+    country: "美国"
+    book_type: "心理学应用"
+    slug: "拖延心理学"
+  
+  梦的解析:
+    author: "弗洛伊德"
+    year: "1900年"
+    country: "奥地利"
+    book_type: "心理学经典"
+    slug: "梦的解析"
+  
+  人的潜能和价值:
+    author: "马斯洛"
+    year: "1968年"
+    country: "美国"
+    book_type: "人本主义心理学"
+    slug: "人的潜能和价值"
+  
+  乌合之众:
+    author: "勒庞"
+    year: "1895年"
+    country: "法国"
+    book_type: "社会心理学"
+    slug: "乌合之众"
+  
+  爱的艺术:
+    author: "弗洛姆"
+    year: "1956年"
+    country: "德裔美国"
+    book_type: "心理学经典"
+    slug: "爱的艺术"
+  
+  人性的弱点:
+    author: "卡耐基"
+    year: "1936年"
+    country: "美国"
+    book_type: "人际关系学"
+    slug: "人性的弱点"
+  
+  经济学原理:
+    author: "曼昆"
+    year: "1998年"
+    country: "美国"
+    book_type: "经济学教材"
+    slug: "经济学原理"
+  
+  激荡三十年:
+    author: "吴晓波"
+    year: "2007年"
+    country: "中国"
+    book_type: "商业史"
+    slug: "激荡三十年"
+  
+  长尾理论:
+    author: "安德森"
+    year: "2006年"
+    country: "美国"
+    book_type: "商业理论"
+    slug: "长尾理论"
+  
+  欢乐的经济学:
+    author: "戴维·亨德森"
+    year: "2002年"
+    country: "美国"
+    book_type: "经济学普及"
+    slug: "欢乐的经济学"
+  
+  无价:
+    author: "庞德斯通"
+    year: "2010年"
+    country: "美国"
+    book_type: "行为经济学"
+    slug: "无价"
+  
+  悲惨世界:
+    author: "雨果"
+    year: "1862年"
+    country: "法国"
+    book_type: "浪漫主义文学"
+    slug: "悲惨世界"
+  
+  红与黑:
+    author: "司汤达"
+    year: "1830年"
+    country: "法国"
+    book_type: "现实主义文学"
+    slug: "红与黑"
+  
+  老人与海:
+    author: "海明威"
+    year: "1952年"
+    country: "美国"
+    book_type: "现代文学"
+    slug: "老人与海"
+  
+  平凡的世界:
+    author: "路遥"
+    year: "1986年"
+    country: "中国"
+    book_type: "现实主义文学"
+    slug: "平凡的世界"
+  
+  芙蓉镇:
+    author: "古华"
+    year: "1981年"
+    country: "中国"
+    book_type: "现实主义文学"
+    slug: "芙蓉镇"
+  
+  雪国:
+    author: "川端康成"
+    year: "1948年"
+    country: "日本"
+    book_type: "现代文学"
+    slug: "雪国"
+  
+  小王子:
+    author: "圣埃克苏佩里"
+    year: "1943年"
+    country: "法国"
+    book_type: "童话文学"
+    slug: "小王子"
+  
+  人间词话:
+    author: "王国维"
+    year: "1910年"
+    country: "中国"
+    book_type: "文学批评"
+    slug: "人间词话"
+  
+  西方美学史:
+    author: "朱光潜"
+    year: "1963年"
+    country: "中国"
+    book_type: "美学理论"
+    slug: "西方美学史"
+  
+  玩偶之家:
+    author: "易卜生"
+    year: "1879年"
+    country: "挪威"
+    book_type: "现代戏剧"
+    slug: "玩偶之家"
+  
+  一九八四:
+    author: "奥威尔"
+    year: "1949年"
+    country: "英国"
+    book_type: "反乌托邦小说"
+    slug: "一九八四"
+  
+  目送:
+    author: "龙应台"
+    year: "2008年"
+    country: "中国台湾"
+    book_type: "散文集"
+    slug: "目送"
+  
+  生命是什么:
+    author: "薛定谔"
+    year: "1944年"
+    country: "奥地利"
+    book_type: "科学哲学"
+    slug: "生命是什么"
+  
+  自私的基因:
+    author: "道金斯"
+    year: "1976年"
+    country: "英国"
+    book_type: "进化生物学"
+    slug: "自私的基因"
+  
+  设计心理学:
+    author: "诺曼"
+    year: "1988年"
+    country: "美国"
+    book_type: "设计理论"
+    slug: "设计心理学"
+  
+  浅薄:
+    author: "卡尔"
+    year: "2010年"
+    country: "美国"
+    book_type: "媒体批评"
+    slug: "浅薄"
+  
+  西方的没落:
+    author: "斯宾格勒"
+    year: "1918年"
+    country: "德国"
+    book_type: "文明史学"
+    slug: "西方的没落"
+  
+  历史研究:
+    author: "汤因比"
+    year: "1934年"
+    country: "英国"
+    book_type: "历史哲学"
+    slug: "历史研究"
+  
+  论美国的民主:
+    author: "托克维尔"
+    year: "1835年"
+    country: "法国"
+    book_type: "政治社会学"
+    slug: "论美国的民主"
+  
+  菊花与刀:
+    author: "本尼迪克特"
+    year: "1946年"
+    country: "美国"
+    book_type: "文化人类学"
+    slug: "菊花与刀"
+  
+  惠普之道:
+    author: "帕卡德"
+    year: "1995年"
+    country: "美国"
+    book_type: "企业管理"
+    slug: "惠普之道"
+  
+  麦肯锡方法:
+    author: "拉塞尔"
+    year: "1999年"
+    country: "美国"
+    book_type: "咨询方法论"
+    slug: "麦肯锡方法"
+  
+  人月神话:
+    author: "布鲁克斯"
+    year: "1975年"
+    country: "美国"
+    book_type: "软件工程"
+    slug: "人月神话"
+  
+  Facebook效应:
+    author: "柯克帕特里克"
+    year: "2010年"
+    country: "美国"
+    book_type: "商业传记"
+    slug: "Facebook效应"
+  
+  如何阅读一本书:
+    author: "艾德勒 & 范多伦"
+    year: "1940年"
+    country: "美国"
+    book_type: "阅读方法论"
+    slug: "如何阅读一本书"
+  
+  影响力:
+    author: "西奥迪尼"
+    year: "1984年"
+    country: "美国"
+    book_type: "社会心理学"
+    slug: "影响力"
+  
+  非暴力沟通:
+    author: "卢森堡"
+    year: "1999年"
+    country: "美国"
+    book_type: "沟通技巧"
+    slug: "非暴力沟通"
+  
+  策略思维:
+    author: "迪克西特"
+    year: "1991年"
+    country: "美国"
+    book_type: "博弈论"
+    slug: "策略思维"
+  
+  定位:
+    author: "里斯"
+    year: "1981年"
+    country: "美国"
+    book_type: "营销理论"
+    slug: "定位"
+  
+  战争论:
+    author: "克劳塞维茨"
+    year: "1832年"
+    country: "普鲁士"
+    book_type: "军事理论"
+    slug: "战争论"
+  
+  正义论:
+    author: "罗尔斯"
+    year: "1971年"
+    country: "美国"
+    book_type: "政治哲学"
+    slug: "正义论" 
