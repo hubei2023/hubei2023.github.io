@@ -1,3 +1,8 @@
+collections:
+  book-detail:
+    output: true
+    permalink: /book-detail/:title/
+
 title: 被认知圈养
 description: 探索认知的边界，突破思维的牢笼
 baseurl: ""
