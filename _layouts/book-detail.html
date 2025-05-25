@@ -6,131 +6,97 @@ layout: default
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsmind@0.7.5/style/jsmind.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsmind@0.7.5/es6/jsmind.js"></script>
 
-<div class="book-brief">
-  <div class="book-title-row">
-    <span class="book-title">{{ page.book_title }}</span>
-    <span class="book-meta-inline">
-      {{ page.author }} | {{ page.country }} | {{ page.year }} | {{ page.book_type }}
-    </span>
-  </div>
-  <div class="book-desc">{{ page.description | markdownify }}</div>
-</div>
-
-<div class="book-sections">
-  <div class="section-card">
-    <div class="section-title">📝 作者背景</div>
-    <div class="section-content">{{ page.author_background | markdownify }}</div>
-  </div>
-  <div class="section-card">
-    <div class="section-title">📚 书籍目录</div>
-    <div class="section-content">
-      <div id="catalog-mindmap" style="width:100%;height:220px;background:#fff;border-radius:6px;"></div>
+<div class="catalog-mindmap-only">
+  <div class="catalog-mindmap-card">
+    <div class="catalog-mindmap-content">
+      <div id="catalog-mindmap"></div>
       <script id="catalog-data" type="application/json">
       [
-        {% for chapter in page.catalog %}
-          {"id":"c{{ forloop.index }}","topic":"{{ chapter }}"}{% unless forloop.last %},{% endunless %}
-        {% endfor %}
+        {"id":"a1","topic":"作者背景",
+          "children": [
+            {"id":"a1-1","topic": "{{ page.author_background | strip_newlines | escape | replace: '，', '\n' }}"}
+          ]
+        },
+        {"id":"c1","topic":"第一章 阅读的层次"},
+        {"id":"c2","topic":"第二章 检视阅读"},
+        {"id":"c3","topic":"第三章 分析阅读"},
+        {"id":"c4","topic":"第四章 主题阅读"},
+        {"id":"c5","topic":"第五章 阅读不同类型的书",
+          "children": [
+            {"id":"c5-1","topic":"基础阅读",
+              "children": [
+                {% for req in page.basic_reading_requirements %}
+                  {"id":"c5-1-{{ forloop.index }}","topic":"{{ req }}"}{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+              ]
+            }
+          ]
+        }
       ]
       </script>
-    </div>
-  </div>
-  <div class="section-card">
-    <div class="section-title">💡 核心观点</div>
-    <div class="section-content">
-      <ul class="core-viewpoints-list">
-        {% for viewpoint in page.core_viewpoints %}
-          <li><strong>{{ viewpoint.title }}：</strong>{{ viewpoint.description }}</li>
-        {% endfor %}
-      </ul>
-      <div class="core-conclusion"><strong>核心结论：</strong>{{ page.core_conclusion }}</div>
-    </div>
-  </div>
-  <div class="section-card">
-    <div class="section-title">🔗 相关书籍</div>
-    <div class="section-content">
-      <ul class="related-books-list">
-        {% for book in page.related_books %}
-          <li>
-            <strong>{{ book.title }}</strong>（{{ book.author }}）：{{ book.relation }}
-          </li>
-        {% endfor %}
-      </ul>
     </div>
   </div>
 </div>
 
 <style>
-.book-brief {
-  max-width: 700px;
-  margin: 18px auto 0 auto;
-  padding: 12px 16px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  font-size: 15px;
-  color: #333;
-}
-.book-title-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-.book-title { font-size: 1.3rem; font-weight: 700; margin-right: 10px; }
-.book-meta-inline { font-size: 1rem; color: #666; }
-.book-desc { margin-bottom: 6px; color: #444; }
-
-.book-sections {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+.catalog-mindmap-only {
   max-width: 900px;
-  margin: 12px auto 0 auto;
+  margin: 40px auto 0 auto;
+  padding: 0 10px;
 }
-.section-card {
+.catalog-mindmap-card {
   background: #f8f9fa;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  padding: 12px 14px;
-  font-size: 14px;
+  padding: 0;
   min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
-.section-title {
+.catalog-mindmap-title {
   font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 4px;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
+  padding: 18px 24px 8px 24px;
 }
-.catalog-list, .core-viewpoints-list, .related-books-list {
-  margin: 0 0 0 18px;
-  padding: 0;
+.catalog-mindmap-content {
+  padding: 0 24px 24px 24px;
 }
-.core-conclusion {
-  margin-top: 6px;
-  background: #e6f7ff;
-  border-radius: 5px;
-  padding: 4px 8px;
-  color: #005580;
-  font-weight: 500;
-  font-size: 13px;
+#catalog-mindmap {
+  width: 100%;
+  height: 400px;
+  min-width: 0;
+  overflow: visible;
+  background: #fff;
+  border-radius: 0;
+  display: block;
+}
+.jsmind-inner {
+  white-space: pre-line !important;
+  word-break: break-all !important;
+  max-width: 400px !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }
 @media (max-width: 700px) {
-  .book-sections { grid-template-columns: 1fr; }
+  .catalog-mindmap-content { padding: 0 6px 12px 6px; }
+  .catalog-mindmap-title { padding: 12px 8px 6px 8px; }
 }
 </style>
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
+  function safeParseJSON(str) {
+    try {
+      return JSON.parse(str.replace(/\s+/g, ' ').replace(/,\s*]/, ']'));
+    } catch(e) {
+      return [];
+    }
+  }
   if (window.jsMind) {
     var children = [];
-    try {
-      var dataTag = document.getElementById('catalog-data');
-      if(dataTag) children = JSON.parse(dataTag.textContent.replace(/\n/g, '').replace(/\s+/g, ' '));
-    } catch(e) {}
+    var dataTag = document.getElementById('catalog-data');
+    if(dataTag) {
+      children = safeParseJSON(dataTag.textContent || dataTag.innerText || '');
+    }
     var mind = {
       "meta": {"name":"catalog-mindmap","author":"auto","version":"1.0"},
       "format": "node_tree",
@@ -145,6 +111,15 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     var jm = new jsMind(options);
     jm.show(mind);
+    window.jm = jm;
+    window.addEventListener('resize', function() {
+      if (window.jm && typeof window.jm.resize === 'function') {
+        window.jm.resize();
+      }
+    });
+  } else {
+    var container = document.getElementById('catalog-mindmap');
+    if(container) container.innerHTML = '<div style="color:#c00;padding:10px;">jsMind 加载失败，请检查网络或刷新页面。</div>';
   }
 });
 </script> 
