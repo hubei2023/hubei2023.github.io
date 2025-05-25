@@ -2,301 +2,149 @@
 layout: default
 ---
 
-<div class="book-detail-container">
-  <!-- 返回按钮 -->
-  <div class="back-button">
-    <a href="/" class="btn-back">
-      <i class="icon-back">←</i>
-      返回思维导图
-    </a>
+<!-- 引入 jsMind 样式和脚本 -->
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsmind@0.7.5/style/jsmind.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsmind@0.7.5/es6/jsmind.js"></script>
+
+<div class="book-brief">
+  <div class="book-title-row">
+    <span class="book-title">{{ page.book_title }}</span>
+    <span class="book-meta-inline">
+      {{ page.author }} | {{ page.country }} | {{ page.year }} | {{ page.book_type }}
+    </span>
   </div>
+  <div class="book-desc">{{ page.description | markdownify }}</div>
+</div>
 
-  <!-- 书籍标题区域 -->
-  <header class="book-header">
-    <h1 class="book-title">{{ page.book_title }}</h1>
-    <div class="book-meta">
-      <span class="author">{{ page.author }}</span>
-      <span class="year">{{ page.year }}</span>
-      <span class="country">{{ page.country }}</span>
+<div class="book-sections">
+  <div class="section-card">
+    <div class="section-title">📝 作者背景</div>
+    <div class="section-content">{{ page.author_background | markdownify }}</div>
+  </div>
+  <div class="section-card">
+    <div class="section-title">📚 书籍目录</div>
+    <div class="section-content">
+      <div id="catalog-mindmap" style="width:100%;height:220px;background:#fff;border-radius:6px;"></div>
+      <script id="catalog-data" type="application/json">
+      [
+        {% for chapter in page.catalog %}
+          {"id":"c{{ forloop.index }}","topic":"{{ chapter }}"}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+      </script>
     </div>
-    <div class="book-type">
-      <span class="type-tag">{{ page.book_type }}</span>
+  </div>
+  <div class="section-card">
+    <div class="section-title">💡 核心观点</div>
+    <div class="section-content">
+      <ul class="core-viewpoints-list">
+        {% for viewpoint in page.core_viewpoints %}
+          <li><strong>{{ viewpoint.title }}：</strong>{{ viewpoint.description }}</li>
+        {% endfor %}
+      </ul>
+      <div class="core-conclusion"><strong>核心结论：</strong>{{ page.core_conclusion }}</div>
     </div>
-  </header>
-
-  <!-- 主要内容区域 -->
-  <div class="book-content">
-    <!-- 作者背景 -->
-    <section class="author-background">
-      <h2>📝 作者背景</h2>
-      <div class="content-card">
-        {{ page.author_background | markdownify }}
-      </div>
-    </section>
-
-    <!-- 书籍目录 -->
-    <section class="book-catalog">
-      <h2>📚 书籍目录</h2>
-      <div class="content-card">
-        <ol class="catalog-list">
-          {% for chapter in page.catalog %}
-            <li>{{ chapter }}</li>
-          {% endfor %}
-        </ol>
-      </div>
-    </section>
-
-    <!-- 核心观点 -->
-    <section class="core-viewpoints">
-      <h2>💡 核心观点</h2>
-      <div class="content-card">
-        <div class="viewpoints-grid">
-          {% for viewpoint in page.core_viewpoints %}
-            <div class="viewpoint-item">
-              <h3>{{ viewpoint.title }}</h3>
-              <p>{{ viewpoint.description }}</p>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- 相关书籍 -->
-    <section class="related-books">
-      <h2>🔗 书中提到的相关书籍</h2>
-      <div class="content-card">
-        <div class="related-books-grid">
-          {% for book in page.related_books %}
-            <div class="related-book-item">
-              <h4>{{ book.title }}</h4>
-              <p class="book-author">作者：{{ book.author }}</p>
-              <p class="book-relation">关系：{{ book.relation }}</p>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <!-- 书籍简介 -->
-    <section class="book-description">
-      <h2>📖 书籍简介</h2>
-      <div class="content-card">
-        {{ page.description | markdownify }}
-      </div>
-    </section>
+  </div>
+  <div class="section-card">
+    <div class="section-title">🔗 相关书籍</div>
+    <div class="section-content">
+      <ul class="related-books-list">
+        {% for book in page.related_books %}
+          <li>
+            <strong>{{ book.title }}</strong>（{{ book.author }}）：{{ book.relation }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </div>
 
 <style>
-.book-detail-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
+.book-brief {
+  max-width: 700px;
+  margin: 18px auto 0 auto;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-size: 15px;
   color: #333;
 }
-
-.back-button {
-  margin-bottom: 30px;
-}
-
-.btn-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-}
-
-.btn-back:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-  color: white;
-  text-decoration: none;
-}
-
-.icon-back {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.book-header {
-  text-align: center;
-  margin-bottom: 50px;
-  padding: 40px 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.book-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.book-meta {
+.book-title-row {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
 }
+.book-title { font-size: 1.3rem; font-weight: 700; margin-right: 10px; }
+.book-meta-inline { font-size: 1rem; color: #666; }
+.book-desc { margin-bottom: 6px; color: #444; }
 
-.book-meta span {
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  font-weight: 500;
-  color: #555;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.type-tag {
-  display: inline-block;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 25px;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.book-content {
+.book-sections {
   display: grid;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: 900px;
+  margin: 12px auto 0 auto;
 }
-
-.book-content section {
-  margin-bottom: 40px;
-}
-
-.book-content h2 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 3px solid #667eea;
+.section-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 12px 14px;
+  font-size: 14px;
+  min-width: 0;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 6px;
 }
-
-.content-card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e1e8ed;
-  transition: all 0.3s ease;
-}
-
-.content-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.catalog-list {
-  padding-left: 20px;
-}
-
-.catalog-list li {
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #555;
-}
-
-.viewpoints-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-.viewpoint-item {
-  padding: 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border-radius: 12px;
-  border-left: 4px solid #667eea;
-}
-
-.viewpoint-item h3 {
+.section-title {
+  font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+  margin-bottom: 4px;
+  font-size: 1.05rem;
 }
+.catalog-list, .core-viewpoints-list, .related-books-list {
+  margin: 0 0 0 18px;
+  padding: 0;
+}
+.core-conclusion {
+  margin-top: 6px;
+  background: #e6f7ff;
+  border-radius: 5px;
+  padding: 4px 8px;
+  color: #005580;
+  font-weight: 500;
+  font-size: 13px;
+}
+@media (max-width: 700px) {
+  .book-sections { grid-template-columns: 1fr; }
+}
+</style>
 
-.viewpoint-item p {
-  color: #666;
-  margin: 0;
-}
-
-.related-books-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.related-book-item {
-  padding: 20px;
-  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-  border-radius: 12px;
-  border: 1px solid #feb2b2;
-}
-
-.related-book-item h4 {
-  color: #2d3748;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-.book-author, .book-relation {
-  margin: 5px 0;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .book-detail-container {
-    padding: 15px;
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.jsMind) {
+    var children = [];
+    try {
+      var dataTag = document.getElementById('catalog-data');
+      if(dataTag) children = JSON.parse(dataTag.textContent.replace(/\n/g, '').replace(/\s+/g, ' '));
+    } catch(e) {}
+    var mind = {
+      "meta": {"name":"catalog-mindmap","author":"auto","version":"1.0"},
+      "format": "node_tree",
+      "data": {"id":"root","topic":"目录","children": children}
+    };
+    var options = {
+      container:'catalog-mindmap',
+      editable:false,
+      theme:'primary',
+      support_html:true,
+      view:{line_width:2, line_color:'#bbb', hmargin:10, vmargin:10}
+    };
+    var jm = new jsMind(options);
+    jm.show(mind);
   }
-  
-  .book-title {
-    font-size: 2rem;
-  }
-  
-  .book-meta {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .viewpoints-grid,
-  .related-books-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .content-card {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .book-title {
-    font-size: 1.5rem;
-  }
-  
-  .book-content h2 {
-    font-size: 1.4rem;
-  }
-}
-</style> 
+});
+</script> 

@@ -26,6 +26,9 @@ layout: default
       {"id": "a1", "parentid": "root", "topic": "检视阅读: {{ page.inspection_reading }}", "background-color": "#FFD700"},
       {"id": "a2", "parentid": "root", "topic": "作者背景: {{ page.author_background }}", "background-color": "#90EE90"},
       {"id": "a3", "parentid": "root", "topic": "核心关键字: {{ page.keywords | join: ', ' }}", "background-color": "#87CEFA"},
+      {"id": "a5", "parentid": "root", "topic": "知识的作用", "background-color": "#FFDEAD"},
+      {% for role in page.knowledge_roles %}
+        {"id": "a5-{{ forloop.index }}", "parentid": "a5", "topic": "{{ role }}"},{% endfor %}
       {% for chapter in page.catalog %}
         {"id": "c{{ forloop.index }}", "parentid": "root", "topic": "{{ chapter.chapter }}", "background-color": "#FFB6C1"},
         {"id": "c{{ forloop.index }}-theme", "parentid": "c{{ forloop.index }}", "topic": "主题: {{ chapter.theme }}"},
